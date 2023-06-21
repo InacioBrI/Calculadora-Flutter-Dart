@@ -41,8 +41,64 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurple,
-      body: Container(
-
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height /3,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.end, children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                alignment: Alignment.centerRight,
+                child:  Text(
+                  usarInput,
+                  style: const TextStyle(
+                      fontSize: 32,
+                      color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                alignment: Alignment.centerRight,
+                child:  Text(
+                  result,
+                  style: const TextStyle(
+                    fontSize: 47,
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal
+                  ),
+                ),
+              ),
+            ]),
+          ),
+          const Divider(color: Colors.white),
+          Expanded(child: Container(
+            padding: EdgeInsets.all(10),
+            child: GridView.builder(
+              itemCount: buttonList.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                ),
+                itemBuilder: (BuildContext context, int index){
+                  return CustomButton(buttonList[index]);
+              }
+          )),
+        ],
+      ),
+    );
+  }
+  Widget CustomButton(String Text){
+    return InkWell(
+      splashColor: Colors.deepPurple,
+      onTap: (){},
+      child: Ink(
+        decoration: const BoxDecoration(
+          color: Colors.red
+        ),
       ),
     );
   }
