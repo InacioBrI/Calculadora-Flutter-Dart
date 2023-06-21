@@ -98,15 +98,15 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
       splashColor: Colors.deepPurple,
       onTap: (){},
       child: Ink(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.horizontal(),
+          borderRadius: const BorderRadius.horizontal(),
           boxShadow: [
             BoxShadow(
               color: Colors.white.withOpacity(0.1),
               blurRadius: 4,
               spreadRadius: 0.5,
-              offset: Offset(-3, -3),
+              offset: const Offset(-3, -3),
             ),
           ],
         ),
