@@ -75,7 +75,7 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
           ),
           const Divider(color: Colors.white),
           Expanded(child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: GridView.builder(
               itemCount: buttonList.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -85,8 +85,10 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
                 ),
                 itemBuilder: (BuildContext context, int index){
                   return CustomButton(buttonList[index]);
-              }
-          )),
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -97,7 +99,16 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
       onTap: (){},
       child: Ink(
         decoration: const BoxDecoration(
-          color: Colors.red
+          color: Colors.white,
+          borderRadius: BorderRadius.horizontal(),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white.withOpacity(0.1),
+              blurRadius: 4,
+              spreadRadius: 0.5,
+              offset: Offset(-3, -3),
+            ),
+          ],
         ),
       ),
     );
