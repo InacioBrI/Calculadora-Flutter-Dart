@@ -93,6 +93,7 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
       ),
     );
   }
+
   Widget CustomButton(String Text){
     return InkWell(
       splashColor: Colors.deepPurple,
