@@ -111,6 +111,7 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
             ),
           ],
         ),
+        child: Center,
       ),
     );
   }
