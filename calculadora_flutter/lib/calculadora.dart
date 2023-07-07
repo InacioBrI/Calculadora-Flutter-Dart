@@ -126,18 +126,18 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
   }
   getColor(String text){
     if(text == "/" || text == "*" || text == "+" || text == "-" || text == "C" || text == "(" || text == ")"){
-      return Color.fromARGB(255, 252, 100, 100)
+      return Color.fromARGB(255, 252, 100, 100);
     }
     return Colors.white;
   }
 
   getBgColor(String text){
     if(text == "AC"){
-      return Color.fromARGB(255, 252, 100, 100)
+      return Color.fromARGB(255, 252, 100, 100);
     }
     if(text == "="){
-      return Color.fromARGB(255, 104, 100, 100)
+      return Color.fromARGB(255, 9, 199, 231);
     }
-    return Color(0xFF1d2630);
+    return Color(0xff132236);
   }
 }
