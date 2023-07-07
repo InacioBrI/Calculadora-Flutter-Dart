@@ -94,13 +94,13 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
     );
   }
 
-  Widget CustomButton(String Text){
+  Widget CustomButton(String text){
     return InkWell(
       splashColor: Colors.deepPurple,
       onTap: (){},
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: getBgColor(text),
           borderRadius: const BorderRadius.horizontal(),
           boxShadow: [
             BoxShadow(
@@ -111,8 +111,33 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
             ),
           ],
         ),
-        child: Center,
+        child: Center(
+          child: Text(
+              text,
+            style: TextStyle(
+                color: getColor(text),
+              fontSize: 30,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
       ),
     );
+  }
+  getColor(String text){
+    if(text == "/" || text == "*" || text == "+" || text == "-" || text == "C" || text == "(" || text == ")"){
+      return Color.fromARGB(255, 252, 100, 100)
+    }
+    return Colors.white;
+  }
+
+  getBgColor(String text){
+    if(text == "AC"){
+      return Color.fromARGB(255, 252, 100, 100)
+    }
+    if(text == "="){
+      return Color.fromARGB(255, 104, 100, 100)
+    }
+    return Color(0xFF1d2630);
   }
 }
