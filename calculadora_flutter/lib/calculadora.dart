@@ -158,5 +158,23 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
       return null;
       }
     }
+
+    if(text == "="){
+      result = Calcular();
+      if(result.endsWith(".0")){
+        return result.replaceAll(".0", "");
+        return;
+      }
+    }
+
+    usarInput = usarInput +text;
+  }
+
+  String calcular(){
+    try {
+      var exp = Parser().parser(usarInput)
+    }catch(end){
+return "Erro";
+    }
   }
 }
