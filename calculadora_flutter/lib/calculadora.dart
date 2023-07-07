@@ -97,7 +97,11 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
   Widget CustomButton(String text){
     return InkWell(
       splashColor: Colors.deepPurple,
-      onTap: (){},
+      onTap: (){
+        setState(() {
+          handleButtons(text);
+        });
+      },
       child: Ink(
         decoration: BoxDecoration(
           color: getBgColor(text),
@@ -139,5 +143,20 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
       return Color.fromARGB(255, 9, 199, 231);
     }
     return Color(0xff132236);
+  }
+  handleButtons(String text){
+    if(text == "AC"){
+      usarInput = "";
+      result = "0";
+      return;
+    }
+    if(text == "C"){
+      if(usarInput.isNotEmpty){
+        usarInput = usarInput.substring(0, usarInput.length -1);
+      }
+    else{
+      return null;
+      }
+    }
   }
 }
