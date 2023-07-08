@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 
 class CalculadoraApp extends StatefulWidget {
@@ -160,7 +161,8 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
     }
 
     if(text == "="){
-      result = Calcular();
+      result = calcular();
+      usarInput = result;
       if(result.endsWith(".0")){
         return result.replaceAll(".0", "");
         return;
@@ -172,9 +174,11 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
 
   String calcular(){
     try {
-      var exp = Parser().parser(usarInput)
+      var exp = Parser().parse(usarInput);
+      var evaluation = exp.evaluate(EvaluationType.REAL, ContextModel());
+      return evaluation.toString();
     }catch(end){
-return "Erro";
+      return "Erro";
     }
   }
 }
