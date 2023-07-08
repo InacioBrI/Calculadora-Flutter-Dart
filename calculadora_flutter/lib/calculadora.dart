@@ -163,6 +163,10 @@ class _CalculadoraAppState extends State<CalculadoraApp> {
     if(text == "="){
       result = calcular();
       usarInput = result;
+
+      if(usarInput.endsWith(".0")) {
+        usarInput = usarInput.replaceAll(".0", "");
+      }
       if(result.endsWith(".0")){
         return result.replaceAll(".0", "");
         return;
